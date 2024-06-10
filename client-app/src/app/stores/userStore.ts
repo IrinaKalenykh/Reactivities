@@ -53,4 +53,8 @@ export default class UserStore {
     deleteImage = () => {
         if (this.user) this.user.image = undefined;
     }
+
+    setDisplayName = (displayName: string) => {
+        if (this.user) this.user.displayName = displayName;
+    }
  }
