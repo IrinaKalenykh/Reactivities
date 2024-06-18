@@ -41,8 +41,8 @@ namespace Application.Profiles
                 query = request.Predicate switch
                 {
                     Hosting => query.Where(a => a.HostUsername == request.Username),
-                    Past => query.Where(a => a.Date <= DateTime.Now),
-                    _ => query.Where(d => d.Date > DateTime.Now)
+                    Past => query.Where(a => a.Date <= DateTime.UtcNow),
+                    _ => query.Where(d => d.Date > DateTime.UtcNow)
                 };
 
                 var userActivities = await query.ToListAsync(cancellationToken);
